@@ -9,7 +9,7 @@ export class EthValidatorService {
 
   validatorIds: number[] = [1]
 
-  beaconChainApiAddress: string = 'https://beaconcha.in/api/v1/validator/stats/';
+  beaconChainApiAddress: string = 'http://localhost:3000/api/v1/eth-validator/';
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +18,7 @@ export class EthValidatorService {
     req.subscribe(res => {
       console.log(res);
     });
+    return req;
 
   }
 }

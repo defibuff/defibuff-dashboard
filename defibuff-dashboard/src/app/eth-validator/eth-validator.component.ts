@@ -10,8 +10,14 @@ export class EthValidatorComponent implements OnInit {
 
   constructor(public ethValidatorService: EthValidatorService) { }
 
+  public validator = {
+    value: 0
+  }
+
   ngOnInit(): void {
-    this.ethValidatorService.requestValidatorStatus('1');
+    this.ethValidatorService.requestValidatorStatus('1').subscribe(res => {
+      this.validator.value = res.value;
+    });
   }
 
 }
